@@ -12,3 +12,7 @@ export const createMessagePayload = (text) => {
     last_updated: dayjs().format('YYYY-MM-DDTHH:mm:ss')
   }
 }
+
+export const formatDateTime = (dateTime) => {
+  return dayjs(dateTime).format('dddd D MMMM YYYY HH:mm:ss')
+}

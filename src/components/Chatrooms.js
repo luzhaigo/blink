@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { useChatrooms } from './providers/AppProvider'
+import { formatDateTime } from '../utils'
 
 const List = styled.ul`
   list-style: none;
@@ -22,6 +23,7 @@ const Item = styled.li`
 
 const LastUpdated = styled.p`
   margin-top: 12px;
+  font-size: 12px;
 `
 
 const Chatrooms = ({ onClick }) => {
@@ -31,7 +33,7 @@ const Chatrooms = ({ onClick }) => {
     {chatrooms.map(({ id, name, last_updated }) => {
       return <Item key={id} onClick={() => onClick(id)}>
         {name}
-        <LastUpdated>{last_updated}
+        <LastUpdated>{formatDateTime(last_updated)}
         </LastUpdated></Item>
     })}
   </List>)

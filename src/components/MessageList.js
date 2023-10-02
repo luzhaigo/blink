@@ -1,7 +1,7 @@
 import { useRef, useEffect } from 'react'
 import styled from 'styled-components'
 import { useChatroomMessage } from './providers/AppProvider'
-import { scrollToEnd } from '../utils'
+import { scrollToEnd, formatDateTime } from '../utils'
 
 const List = styled.ul`
   list-style: none;
@@ -41,7 +41,7 @@ const MessageList = ({ roomId, onMessageClick }) => {
   return <List ref={ref}>{
     messages?.map(({ id, text, last_updated }) => {
       return <Message key={id}>
-        <Date>{last_updated}</Date>
+        <Date>{formatDateTime(last_updated)}</Date>
         <Text onClick={() => onMessageClick({ id, text, last_updated })}>{text}</Text>
       </Message>
     })
