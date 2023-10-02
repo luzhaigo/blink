@@ -29,7 +29,7 @@ const LastUpdated = styled.p`
 const Chatrooms = ({ onClick }) => {
   const chatrooms = useChatrooms()
 
-  return (<List >
+  return (<List data-testid="chatrooms">
     {chatrooms.map(({ id, name, last_updated }) => {
       return <Item key={id} onClick={() => onClick(id)}>
         {name}

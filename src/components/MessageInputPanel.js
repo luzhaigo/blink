@@ -47,14 +47,14 @@ const MessageInputPanel = ({ roomId, editingMessage, onClearEditingMessage }) =>
   }, [editingMessage])
 
   return <Panel>
-    <Form onSubmit={onSubmit}>
+    <Form data-testid="message-form" onSubmit={onSubmit}>
       <Controller
         name="text"
         control={control}
         rules={{ required: true }}
         render={({ field, formState }) => {
           return <MessageLabel htmlFor={field.name}>
-            <MessageInput {...field} required={!!formState.errors?.[field.name]} id={field.name} />
+            <MessageInput {...field} required={!!formState.errors?.[field.name]} id={field.name} data-testid="message-input" />
           </MessageLabel>
         }}
       />

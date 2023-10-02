@@ -38,7 +38,7 @@ const MessageList = ({ roomId, onMessageClick }) => {
     scrollToEnd(ref.current)
   }, [messages])
 
-  return <List ref={ref}>{
+  return <List ref={ref} data-testid="message-list">{
     messages?.map(({ id, text, last_updated }) => {
       return <Message key={id}>
         <Date>{formatDateTime(last_updated)}</Date>
